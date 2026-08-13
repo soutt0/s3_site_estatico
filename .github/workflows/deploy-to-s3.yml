@@ -1,5 +1,5 @@
 name: Deploy to S3
-
+# nome do meu bucket: bucket-sandbox-devops
 on:
   push:
     branches:
@@ -25,7 +25,7 @@ jobs:
       # 3. Enviar os arquivos para o S3
       - name: Deploy to S3
         run: |
-          aws s3 sync . s3://sandbox-pucrs/ --exclude ".git/*" --delete --exact-timestamps
+          aws s3 sync . s3://bucket-sandbox-devops/ --exclude ".git/*" --delete --exact-timestamps
         # 'sandbox-pucrs' é o nome do seu bucket no S3
         # --delete remove arquivos antigos no S3 que não existem mais no repositório
 
